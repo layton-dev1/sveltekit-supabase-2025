@@ -32,6 +32,5 @@ export const getOrCreateUserProfile = async (locals: App.Locals) => {
     if (!newProfile){
         error(500, "Could not create profile");
     }
-    console.log(newProfile)
     return newProfile
 }
