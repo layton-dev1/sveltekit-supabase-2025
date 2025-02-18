@@ -50,7 +50,7 @@ export const actions = {
 
 const supabase = createClient(
   process.env.PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_ANON_KEY!
+  process.env.PUBLIC_SUPABASE_ANON_KEY!
 );
 
 (async () => {
