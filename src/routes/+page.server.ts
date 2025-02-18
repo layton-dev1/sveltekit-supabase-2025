@@ -27,6 +27,8 @@ export const actions = {
             email: zfd.text(),
         })
 
+        console.log(await request.formData())
+
         const {data} = schema.safeParse(await request.formData())
 
         if(!data){
