@@ -130,7 +130,7 @@ password_requirements = ""
 
 [auth.email]
 # Allow/disallow new user signups via email to your project.
-enable_signup = true
+enable_signup = false
 # If enabled, a user will be required to confirm any email change on both the old, and new email
 # addresses. If disabled, only the new email is required to confirm.
 double_confirm_changes = true
@@ -237,7 +237,7 @@ skip_nonce_check = false
 enabled = true
 client_id = "env(GITHUB_CLIENT_ID)"
 secret = "env(GITHUB_CLIENT_SECRET)"
-redirect_uri = "https://fnxncykdibnppljobzuv.supabase.co/auth/v1/callback"
+redirect_uri = "http://127.0.0.1:54321/auth/v1/callback"
 
 
 # Use Firebase Auth as a third-party provider alongside Supabase Auth.
