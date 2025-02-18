@@ -54,6 +54,6 @@ const supabase = createClient(
 );
 
 (async () => {
-  const { data, error } = await supabase.from("profiles").select("*");
+  const { data, error } = await supabase.from("profile").select("*");
   console.log(data || error);
 })();
