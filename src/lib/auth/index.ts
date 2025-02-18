@@ -20,8 +20,8 @@ export const getOrCreateUserProfile = async (locals: App.Locals) => {
 
     await db.insert(profileTable).values({
         id: user.id,
-        firstName: "",
-        lastName: "",
+        first_name: "",
+        last_name: "",
         email: user.email ?? "",
     });
 
