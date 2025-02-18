@@ -31,8 +31,8 @@
         <CardHeader>Manage your profile</CardHeader>
         <CardContent>
             <form method="post" use:enhance={({formData}) => {
-                formData.set("firstName", first_name)
-                formData.set("lastName", last_name)
+                formData.set("first_name", first_name)
+                formData.set("last_name", last_name)
                 formData.set("email", email)
                 return ({result}) => {
                     if (result.type === "success") {
