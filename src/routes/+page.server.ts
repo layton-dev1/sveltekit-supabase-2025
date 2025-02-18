@@ -4,7 +4,6 @@ import { profileTable } from "$lib/db/schema";
 import { error } from "console";
 import { eq } from "drizzle-orm";
 import { zfd } from "zod-form-data";
-import { createClient } from "@supabase/supabase-js";
 
 export const load = async ({ locals }: { locals: App.Locals }) => {
     const userProfile = await getOrCreateUserProfile(locals)
@@ -47,13 +46,3 @@ export const actions = {
         return { success: true}
     }
 }
-
-const supabase = createClient(
-  process.env.PUBLIC_SUPABASE_URL!,
-  process.env.PUBLIC_SUPABASE_ANON_KEY!
-);
-
-(async () => {
-  const { data, error } = await supabase.from("profile").select("*");
-  console.log(data || error);
-})();
