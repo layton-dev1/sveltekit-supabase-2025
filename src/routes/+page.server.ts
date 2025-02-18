@@ -3,7 +3,6 @@ import { db } from "$lib/db";
 import { profileTable } from "$lib/db/schema";
 import { error } from "console";
 import { eq } from "drizzle-orm";
-import { Session } from "inspector/promises";
 import { zfd } from "zod-form-data";
 
 export const load = async ({ locals }: { locals: App.Locals }) => {

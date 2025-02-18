@@ -1,7 +1,7 @@
 {
 	"name": "sveltekit-supabase",
 	"private": true,
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
@@ -45,11 +45,13 @@
 	"dependencies": {
 		"@supabase/ssr": "^0.5.2",
 		"@supabase/supabase-js": "^2.48.1",
+		"bufferutil": "^4.0.9",
 		"drizzle-orm": "^0.39.3",
 		"git": "^0.1.5",
 		"node": "^23.8.0",
 		"nvm": "^0.0.4",
 		"postgres": "^3.4.5",
+		"utf-8-validate": "^6.0.5",
 		"zod": "^3.24.2",
 		"zod-form-data": "^2.0.5"
 	}
