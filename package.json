@@ -48,7 +48,6 @@
 		"bufferutil": "^4.0.9",
 		"drizzle-orm": "^0.39.3",
 		"git": "^0.1.5",
-		"node": "18.20.6",
 		"nvm": "^0.0.4",
 		"postgres": "^3.4.5",
 		"utf-8-validate": "^6.0.5",
