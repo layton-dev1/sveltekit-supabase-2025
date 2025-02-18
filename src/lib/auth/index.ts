@@ -4,7 +4,6 @@ import { error } from "@sveltejs/kit";
 import { eq } from "drizzle-orm";
 
 export const getOrCreateUserProfile = async (locals: App.Locals) => {
-    console.log("1")
     const { user } = await locals.safeGetSession()
 
     if (!user) {
@@ -33,6 +32,7 @@ export const getOrCreateUserProfile = async (locals: App.Locals) => {
     if (!newProfile){
         error(500, "Could not create profile");
     }
+    console.log("1")
 
     return newProfile
 }
