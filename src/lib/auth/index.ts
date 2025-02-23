@@ -1,10 +1,11 @@
 import { db } from "$lib/db";
 import { profileTable } from "$lib/db/schema";
 import { error } from "@sveltejs/kit";
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 
 export const getOrCreateUserProfile = async (locals: App.Locals) => {
     const { user } = await locals.safeGetSession()
+    console.log("Session data:", user);
 
     if (!user) {
         return null;
@@ -17,10 +18,6 @@ export const getOrCreateUserProfile = async (locals: App.Locals) => {
     if (curProfile){
         return curProfile;
     }
-
-const result = await db.select().from(profileTable).limit(1);
-console.log("Results")
-console.log(result);
 
     await db.insert(profileTable).values({
         id: user.id,
