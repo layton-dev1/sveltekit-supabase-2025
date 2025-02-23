@@ -1,4 +1,4 @@
-import { getOrCreateUserProfile } from "$lib/auth";
+import { getOrCreateUserProfile } from "../lib/auth";
 import { db } from "$lib/db";
 import { profileTable } from "$lib/db/schema";
 import { error } from "console";
