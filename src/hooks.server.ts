@@ -24,7 +24,13 @@ const supabase: Handle = async ({ event, resolve }) => {
         })
       },
     },
+    auth: {
+      persistSession: true,
+      autoRefreshToken: true,
+      detectSessionInUrl: true
+    }
   })
+  console.log("Cookies:", event.cookies.getAll());
 
   /**
    * Unlike `supabase.auth.getSession()`, which returns the session _without_
@@ -32,7 +38,6 @@ const supabase: Handle = async ({ event, resolve }) => {
    * JWT before returning the session.
    */
   event.locals.safeGetSession = async () => {
-    console.log("Supabase object:", event.locals.supabase);
     const {
       data: { session },
     } = await event.locals.supabase.auth.getSession()
