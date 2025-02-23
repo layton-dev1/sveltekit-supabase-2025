@@ -16,6 +16,8 @@
     let last_name = $state("")
     let email = $state("")
 
+    console.log(userProfile)
+
     onMount(() => {
         if (userProfile){
             first_name = userProfile.first_name;
