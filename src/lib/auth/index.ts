@@ -19,6 +19,7 @@ export const getOrCreateUserProfile = async (locals: App.Locals) => {
     }
 
 const result = await db.select().from(profileTable).limit(1);
+console.log("Results")
 console.log(result);
 
     await db.insert(profileTable).values({
