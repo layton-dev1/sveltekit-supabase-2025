@@ -31,15 +31,19 @@ const supabase: Handle = async ({ event, resolve }) => {
     }
   })
   console.log("Cookies:", event.cookies.getAll());
-  const jwtCookie = event.cookies.get('_vercel_jwt');
-if (jwtCookie) {
-  // Set the session with the access token only
-  const { data, error } = await event.locals.supabase.auth.setSession({
-    access_token: jwtCookie,
-    refresh_token: "", // You can keep this empty or null for now
-  });
-  console.log("Session after setting JWT:", data, error);
-}
+  const accessToken = event.cookies.get('access_token');
+  const refreshToken = event.cookies.get('refresh_token');
+  
+  if (accessToken && refreshToken) {
+    const { data, error } = await event.locals.supabase.auth.setSession({
+      access_token: accessToken,
+      refresh_token: refreshToken,
+    });
+  
+    console.log("Session after setting:", data, error);
+  } else {
+    console.log("Missing access or refresh token");
+  }
 
 
   /**
