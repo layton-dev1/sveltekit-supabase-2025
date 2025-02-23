@@ -10,6 +10,6 @@
         Login to the site!
     </CardHeader>
     <CardContent>
-        <Button href="/auth/login/github">Sign in with GitHub</Button>
+        <Button href="/auth/login/google">Sign in with Google</Button>
     </CardContent>
 </Card>
