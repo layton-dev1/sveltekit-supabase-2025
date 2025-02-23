@@ -11,18 +11,17 @@
 
     const { data } = $props();
     const { userProfile } = data
+    console.log(userProfile)
 
     let first_name = $state("")
     let last_name = $state("")
     let email = $state("")
 
-    console.log(userProfile)
-
     onMount(() => {
-        if (userProfile){
-            first_name = userProfile.first_name;
-            last_name = userProfile.last_name;
-            email = userProfile.email;
+        if (data?.userProfile){
+            first_name = data.userProfile.first_name;
+            last_name = data.userProfile.last_name;
+            email = data.userProfile.email;
         }
     })
 
