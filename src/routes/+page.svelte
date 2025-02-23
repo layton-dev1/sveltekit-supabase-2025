@@ -13,14 +13,14 @@
     const { userProfile } = data
     console.log(userProfile)
 
-    let first_name = $state("")
-    let last_name = $state("")
+    let firstName = $state("")
+    let lastName = $state("")
     let email = $state("")
 
     onMount(() => {
         if (data?.userProfile){
-            first_name = data.userProfile.first_name;
-            last_name = data.userProfile.last_name;
+            firstName = data.userProfile.firstName;
+            lastName = data.userProfile.lastName;
             email = data.userProfile.email;
         }
     })
@@ -32,8 +32,8 @@
         <CardHeader>Manage your profile</CardHeader>
         <CardContent>
             <form method="post" use:enhance={({formData}) => {
-                formData.set("first_name", first_name)
-                formData.set("last_name", last_name)
+                formData.set("firstName", firstName)
+                formData.set("lastName", lastName)
                 formData.set("email", email)
                 return ({result}) => {
                     if (result.type === "success") {
@@ -50,11 +50,11 @@
                 </div>
                 <div>
                     <Label>First Name</Label>
-                    <Input bind:value={first_name}/>
+                    <Input bind:value={firstName}/>
                 </div>
                 <div>
                     <Label>Last Name</Label>
-                    <Input bind:value={last_name}/>
+                    <Input bind:value={lastName}/>
                 </div>
                 <div>
                     <Button type="submit">Update</Button>
