@@ -7,8 +7,6 @@ import { zfd } from "zod-form-data";
 
 export const load = async ({ locals }: { locals: App.Locals }) => {
     const userProfile = await getOrCreateUserProfile(locals)
-    console.log("Hello from page server1")
-    console.log(userProfile)
     return {
         userProfile,
     };
@@ -17,8 +15,6 @@ export const load = async ({ locals }: { locals: App.Locals }) => {
 export const actions = {
     default: async ({request, locals}: any) => {
         const userProfile = await getOrCreateUserProfile(locals)
-        console.log("Hello from page server2")
-        console.log(userProfile)
 
         if(!userProfile){
             error(401, "You need to be logged in!")

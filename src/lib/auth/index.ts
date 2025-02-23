@@ -18,14 +18,15 @@ export const getOrCreateUserProfile = async (locals: App.Locals) => {
         return curProfile;
     }
 
+const result = await db.select().from(profileTable).limit(1);
+console.log(result);
+
     await db.insert(profileTable).values({
         id: user.id,
         first_name: "",
         last_name: "",
         email: user.email ?? "",
     });
-    console.log("Hello from index")
-    console.log(profileTable)
 
     const newProfile = await db.query.profileTable.findFirst({
         where: eq(profileTable.id, user.id)
