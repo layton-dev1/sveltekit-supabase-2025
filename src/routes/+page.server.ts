@@ -25,8 +25,8 @@ export const actions = {
         }
 
         const schema = zfd.formData({
-            firstName: zfd.text(),
-            lastName: zfd.text(),
+            first_name: zfd.text(),
+            last_name: zfd.text(),
             email: zfd.text(),
         })
 
@@ -40,8 +40,8 @@ export const actions = {
             error(401, "You need to be logged in!")
         } else {
             await db.update(profileTable).set({
-                firstName: data?.firstName,
-                lastName: data?.lastName,
+                first_name: data?.first_name,
+                last_name: data?.last_name,
                 email: data?.email
             }).where(eq(profileTable.id, userProfile.id))
         }
