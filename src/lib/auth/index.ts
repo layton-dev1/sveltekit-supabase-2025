@@ -5,7 +5,6 @@ import { eq, sql } from "drizzle-orm";
 
 export const getOrCreateUserProfile = async (locals: App.Locals) => {
     const { user } = await locals.safeGetSession()
-    console.log("Session data:", user);
 
     if (!user) {
         return null;

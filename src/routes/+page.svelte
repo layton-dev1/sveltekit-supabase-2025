@@ -7,25 +7,17 @@
 	import Card from '$lib/components/ui/card/card.svelte';
 	import Input from '$lib/components/ui/input/input.svelte';
 	import Label from '$lib/components/ui/label/label.svelte';
-	import { onMount } from 'svelte';
+	import Navbar from "$lib/components/ui/navbar/navbar.svelte";
 
     const { data } = $props();
     const { userProfile } = data
 
-    let first_name = $state("")
-    let last_name = $state("")
-    let email = $state("")
-
-    onMount(() => {
-        if (userProfile){
-            first_name = userProfile.first_name;
-            last_name = userProfile.last_name;
-            email = userProfile.email;
-        }
-    })
-
+    let first_name = $state(userProfile?.first_name ?? "")
+    let last_name = $state(userProfile?.last_name ?? "")
+    let email = $state(userProfile?.email ?? "")
 </script>
 
+<Navbar data={ data }></Navbar>
 {#if data.userProfile}
     <Card>
         <CardHeader>Manage your profile</CardHeader>
@@ -61,7 +53,4 @@
             </form>
         </CardContent>
     </Card>
-    <Button href="/auth/logout">Logout</Button>
-{:else}
-    <Button href="/auth/login">Login to the site!</Button>
 {/if}

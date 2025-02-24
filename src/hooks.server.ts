@@ -30,21 +30,6 @@ const supabase: Handle = async ({ event, resolve }) => {
       detectSessionInUrl: true
     }
   })
-  console.log("Cookies:", event.cookies.getAll());
-  const accessToken = event.cookies.get('access_token');
-  const refreshToken = event.cookies.get('refresh_token');
-  
-  if (accessToken && refreshToken) {
-    const { data, error } = await event.locals.supabase.auth.setSession({
-      access_token: accessToken,
-      refresh_token: refreshToken,
-    });
-  
-    console.log("Session after setting:", data, error);
-  } else {
-    console.log("Missing access or refresh token");
-  }
-
 
   /**
    * Unlike `supabase.auth.getSession()`, which returns the session _without_
@@ -56,25 +41,17 @@ const supabase: Handle = async ({ event, resolve }) => {
       data: { session },
     } = await event.locals.supabase.auth.getSession()
     if (!session) {
-      console.log("No session found");
       return { session: null, user: null }
     }
-
-    console.log("Session exists:", session);
-    const userResponse = await event.locals.supabase.auth.getUser();
-    console.log("User response:", userResponse);
 
     const {
       data: { user },
       error,
     } = await event.locals.supabase.auth.getUser()
     if (error) {
-      console.log("User fetch error:", error);
       // JWT validation has failed
       return { session: null, user: null }
     }
-
-    console.log("User exists:", user);
 
     return { session, user }
   }

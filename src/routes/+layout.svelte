@@ -4,7 +4,6 @@
 	import { onMount } from 'svelte';
 
 	let { data, children } = $props();
-
 	let { session, supabase } = $derived(data);
 
 	onMount(() => {
@@ -18,7 +17,6 @@
 </script>
 
 <div>
-	<h2>Hello from Layout</h2>
 	{@render children()}
 </div>
 

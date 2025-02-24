@@ -1,10 +1,14 @@
 import { defineConfig} from "drizzle-kit";
 
+if (!process.env.DATABASE_URL) {
+    throw new Error("DATABASE_URL is not set in the environment variables.");
+  }
+
 export default defineConfig({
     dialect: "postgresql",
     schema: "./src/lib/db/schema.ts",
     out: "./supabase/migrations",
     dbCredentials: {
-        url: "postgresql://postgres:vpjx0ruXXaY1Qnyi@db.fnxncykdibnppljobzuv.supabase.co:5432/postgres"
+        url: process.env.DATABASE_URL
     },
 });

@@ -6,9 +6,7 @@ import { eq } from "drizzle-orm";
 import { zfd } from "zod-form-data";
 
 export const load = async ({ locals }: { locals: App.Locals }) => {
-    console.log("Calling getOrCreateUserProfile");
     const userProfile = await getOrCreateUserProfile(locals)
-    console.log("Profile:", userProfile);
     return {
         userProfile,
     };
